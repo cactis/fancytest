@@ -1,0 +1,12 @@
+.main.span8
+  .row
+    %h1 技能值為: #{@user._ability_value(@resource)}
+.sidebar.span4
+  %h2 #{@resource.prompt} 技能的排行榜
+  - if @resource
+    .row
+      .span1
+        .logo= quiz_logo(@resource)
+      .span4
+        .prompt= link_to @resource.prompt, @resource
+        .description= @resource.description  

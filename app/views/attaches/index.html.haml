@@ -1,0 +1,17 @@
+%h1 Listing attaches
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @attaches.each do |attach|
+    %tr
+      %td= link_to 'Show', attach
+      %td= link_to 'Edit', edit_attach_path(attach)
+      %td= link_to 'Destroy', attach, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Attach', new_attach_path

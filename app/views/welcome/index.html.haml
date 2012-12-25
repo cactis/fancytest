@@ -1,0 +1,13 @@
+.span8.main
+  = render @skills
+  = paginate @skills
+.span4.sidebar
+  - if current_user
+    .about_me
+      = link_to_polymorphic current_user
+  .well
+    %h1 最新測驗
+  .well
+    %h1 最熱門測驗
+  .well
+    %h1 最難測驗

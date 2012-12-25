@@ -1,0 +1,11 @@
+%h2
+%h2 相關測驗
+.row-fluid
+  .skill
+    .prompt= link_to_polymorphic skill
+    .span4
+      .logo= link_to_skill(skill)
+    .span8
+      .description= truncate(skill.description, :length => 100)
+    .info
+      = skill._info

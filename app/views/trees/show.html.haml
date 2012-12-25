@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @tree.name
+%p
+  %b Parent:
+  = @tree.parent_id
+%p
+  %b Lft:
+  = @tree.lft
+%p
+  %b Rgt:
+  = @tree.rgt
+%p
+  %b Depth:
+  = @tree.depth
+
+= link_to 'Edit', edit_tree_path(@tree)
+\|
+= link_to 'Back', trees_path

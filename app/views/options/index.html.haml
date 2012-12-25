@@ -1,0 +1,17 @@
+%h1 Listing options
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @options.each do |option|
+    %tr
+      %td= link_to 'Show', option
+      %td= link_to 'Edit', edit_option_path(option)
+      %td= link_to 'Destroy', option, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Option', new_option_path

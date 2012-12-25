@@ -1,0 +1,11 @@
+.row.skill.exam{:id => dom_id(skill)}
+  = owner_tool(skill)
+  .span2
+    .logo= quiz_logo(skill)
+  .span4
+    .prompt= link_to skill.prompt, skill
+    .description= skill.description
+  .actions
+    = skill._info
+    = link_to_build_sheet(skill, :class => 'btn-primary')
+    = link_to_build_questions(skill)

@@ -1,0 +1,79 @@
+.main.span8
+  .progress
+    .bar{:style => 'height: 30px;width: 100%'}
+      .info
+  = render 'form'
+.sidebar.span4
+  %h2 關於 #{@quiz.prompt}
+  .location= @quiz._info
+  = link_to_skill(@quiz)
+  .actions
+    = link_to_build_questions(@quiz)
+  .descriptioin
+    = @quiz.description
+
+  %h2 您在本測驗的能力值：#{current_user._ability_value(@quiz)}
+  - if current_user._ability_value(@quiz)
+    %h2= raw "您在本測驗的能力 #{current_user._ability_value(@quiz) > @quiz.location ? '高於' : '低於'} 一般水準"
+  %hr
+  %h2 您在本試題的能力值： #{current_user._ability_value(@question)}
+  - if current_user._ability_value(@question)
+    %h2= raw "您在本試題的能力 #{current_user._ability_value(@question) > @question.location ? '高於' : '低於'} 一般水準"
+
+  %hr
+  = @response.question._info
+
+:coffeescript
+  $timeout = #{@question.timing}
+  # $timeout = 2#0000000000000
+  $info = "可用: " + ($timeout) + " 秒"
+  $('.info').html($info)
+  $unit = 10
+  $total = $timeout * 1000 / $unit
+  # $.fn.log 'initial $total: ' + $total
+  i = 0
+  j = 0
+
+  setTimeout "$.fn.display()", $unit
+
+  $.fn.display = ->
+    i += 1
+    $percent = parseInt((($total - i) / $total) * 100)
+    $('.bar').css 'width', $percent + '%'
+
+    if $percent == 50
+      $('.progress').addClass 'progress-warning'
+
+    if $percent == 20
+      $('.progress').removeClass 'progress-warning'
+      $('.progress').addClass 'progress-danger'
+
+    if (i * $unit) % 1000 == 0
+      j += 1
+      $info = "剩下: " + ($timeout - j) + " 秒"
+      $('.info').html($info)
+
+    if i <= $total
+      setTimeout "$.fn.display()", $unit
+    else
+      #options = $("input").filter ->
+      #  this.id.match(/.*option_id/)
+      options = _.map(options, (o) -> $(o).val())
+      $.ajax
+        url: '/questions/' + $('#response_quiz_id').val()
+        #data: {options: options, b: 3}
+        #type: 'GET'
+        dataType: 'script'
+        success: ->
+          $.fn.log 'abc'
+          # $('input[name=authenticity_token]').detach()
+          # $('.form-actions input').fadeOut 100, ->
+          $('.progress').removeClass('progress-danger').find('.bar').css 'width', '100%'
+          $('.mask').css('display', 'table').fadeIn 1000, ->
+            $('.mask').css 'width', $('form').width()
+            $('.mask').css 'height', $('form').outerHeight(true)
+
+
+
+  $('.mask').dblclick (e) ->
+    $(e.target).clearSelection()

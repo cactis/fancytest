@@ -1,0 +1,23 @@
+%h1 個人儀表版
+.tabbable
+  %ul.nav.nav-tabs
+    %li.active= link_to '總覽', '#overview', 'data-toggle' => 'tab'
+    %li= link_to '出題記錄', '#questions', 'data-toggle' => 'tab'
+    %li= link_to '答題記錄', '#responses', 'data-toggle' => 'tab'
+
+
+  .tab-content
+    #overview.tab-pane.active
+      %h2 個人記錄總覽
+      %ul
+        %li 個人總製卷數: #{link_to current_user.quizzes.count, account_skills_path(current_user)}
+        %li 個人總出題數: #{current_user.questions.count}
+        %li 個人總出題選項數: #{current_user.options.count}
+        %li 個人總答題數: #{current_user.responses.count}
+        %li 個人總答題選項數: #{current_user.answers.count}
+        %li 個人累積總分: #{current_user.responses.sum(:value)}
+    #questions.tab-pane
+      %h2 出題記錄
+      = render current_user.questions
+    #responses.tab-pane
+      %h2 答題記錄

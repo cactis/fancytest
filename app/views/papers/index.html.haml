@@ -1,0 +1,17 @@
+%h1 Listing papers
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @papers.each do |paper|
+    %tr
+      %td= link_to 'Show', paper
+      %td= link_to 'Edit', edit_paper_path(paper)
+      %td= link_to 'Destroy', paper, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Paper', new_paper_path

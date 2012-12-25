@@ -1,0 +1,18 @@
+= simple_form_for(@response) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :paper_id, :as => :hidden
+    = f.input :paperable_id, :as => :hidden
+    = f.input :paperable_type, :as => :hidden
+    .prompt= markdown @question.prompt
+  - @question.get_options.each do |option|
+    = f.fields_for "answers_attributes[#{option.id}]", option.answers.new do |s|
+      = render :partial => 'answer_fields', :locals => {:f => s}
+  .form-actions
+    = f.button :submit, '送出答案', :class => 'btn btn-primary btn-large'
+
+
+#mask_background.mask
+#mask.mask
+  #tip
+    = link_to "<i class='icon-time'></i> 時間到。續答下一題？".html_safe, new_polymorphic_path([@skill, Sheet.new]), :class => 'btn btn-large btn-warning'

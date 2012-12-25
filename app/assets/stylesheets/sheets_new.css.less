@@ -1,0 +1,61 @@
+@import "twitter/bootstrap/bootstrap";
+@import 'customize';
+
+
+.form-inputs {
+}
+
+.form-inputs.answer{
+  .box-shadow(0 0 1px #333);
+}
+
+.progress{
+  height: 30px;
+  .bar {
+    overflow: hidden;
+    font-size: 0.8em;
+    text-align: left;
+    //padding: 5px 1em;
+    .info{
+      display: block;
+      width: 100em;
+      margin: 5px 1em;
+      text-shadow: 1px 1px 1px #000;
+    }
+  }
+}
+
+.main{
+  position: relative;
+}
+
+#mask_background{
+  background-color: #000;
+  .opacity(75);
+  .box-shadow(0 0 10px #000);
+}
+
+.mask{
+  display: none;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  vertical-align: middle;
+  #tip {
+    display: table-cell;
+    height: 300px;
+    //vertical-align: middle;
+    a{
+      .border-radius(100px);
+      margin-top: 4em;
+      font-size: 2.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      text-decoration: none;
+      text-shadow: 1px 1px 1px #000;
+    }
+  }
+}
+
+#mask{}

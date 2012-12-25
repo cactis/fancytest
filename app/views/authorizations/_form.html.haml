@@ -1,0 +1,31 @@
+= form_for @authorization do |f|
+  -if @authorization.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@authorization.errors.count, "error")} prohibited this authorization from being saved:"
+      %ul
+        - @authorization.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .field
+    = f.label :provider
+    = f.text_field :provider
+  .field
+    = f.label :uid
+    = f.number_field :uid
+  .field
+    = f.label :token
+    = f.text_field :token
+  .field
+    = f.label :secret
+    = f.text_field :secret
+  .field
+    = f.label :fresh_token
+    = f.text_field :fresh_token
+  .field
+    = f.label :_config
+    = f.text_area :_config
+  .actions
+    = f.submit 'Save'

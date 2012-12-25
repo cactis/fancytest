@@ -1,0 +1,7 @@
+.main.span8
+  %h1 可以建立的測驗種類
+  = link_to_build_exam
+  -# = link_to "<i class='icon-music'></i> 建立興趣考題".html_safe, new_interest_path, :class => 'btn btn-large'
+.sidebar.span4
+  %h1 目前有什麼測驗
+  = render @instances

@@ -1,0 +1,59 @@
+defaults: &defaults
+  app_name: "FancyTest"
+  meta_keywords: 'keywords'
+  meta_description: 'description'
+  foot_html: "&copy; 2012."
+  domain: "[YOUR PRODUCTION DOMAIN]"
+  host: '[YOUR PRODUCTION DOMAIN]'
+  full_host: 'http://[YOUR PRODUCTION DOMAIN]'
+  switch_url: 'http://[YOUR DEVELOPMENT DOMAIN]'
+  reply_domain: "[YOUR PRODUCTION DOMAIN]"
+  admin_emails: "admin@[YOUR PRODUCTION DOMAIN]"
+  google_analytics_key: ""
+  email_sender: 'no-reply@[YOUR PRODUCTION DOMAIN]'
+  email_reply_to: 'notification@[YOUR PRODUCTION DOMAIN]'
+
+  paperclip_hash_secret: "[YOUR PAPERCLIP HASH SECRET]"
+
+  skill_level:
+    high: 0.8 #用來區別是否"了解"一道題。界定熟練
+    middle: 0.5
+
+  aws_access_key_id: ''
+  aws_secret_access_key: ''
+
+
+  twitter_token: "[YOUR TWITTER TOKEN]"
+  twitter_secret: "[YOUR TWITTER SECRET]"
+
+  google_token: ""
+  google_client_id: '[YOUR GOOGLE CLIENT ID]'
+  google_secret: "[YOUR GOOGLE SECRET]"
+
+
+  google_scope: "userinfo.email,userinfo.profile,plus.me"
+  google_contacts_scope: "https://www.google.com/m8/feeds/contacts/default/full"
+  google_calendars_scope: "https://www.google.com/calendar/feeds/"
+
+  facebook_token: "[YOUR FACEBOOK TOKEN]"
+  facebook_secret: "[YOUR FACEBOOK SECRET]"
+  facebook_scope: "email, user_about_me, user_activities, status_update, offline_access, read_friendlists, publish_stream"
+
+  approval_prompt: 'auto'
+  facebook_enable: true
+
+development:
+  <<: *defaults
+  app_name: "FancyTest(測)"
+  domain: '[YOUR DEVELOPMENT DOMAIN]'
+  host: '[YOUR DEVELOPMENT DOMAIN]'
+  full_host: 'http://[YOUR DEVELOPMENT DOMAIN]'
+  switch_url: 'http://[YOUR PRODUCTION DOMAIN]'
+  email_sender: 'no-reply@[YOUR DEVELOPMENT DOMAIN]'
+  email_reply_to: 'notification@[YOUR DEVELOPMENT DOMAIN]'
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

@@ -1,0 +1,18 @@
+= simple_nested_form_for(@question) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :parent_id, :as => :hidden
+    = f.input :prompt, :as => :text, :placeholder => '題目內容', :required => true, :hint => '* 輸入題目後，請按「新增選項」建立題目選項，並勾選正確答案'
+  - @question.options.each do |option|
+    = f.fields_for "options_attributes[]", option do |s|
+      = render :partial => 'option_fields', :locals => {:f => s}
+  = f.link_to_add "<i class='icon-plus-sign'></i> 新增選項 (<u>J</u>)".html_safe, :options, :class => 'btn'
+  .memo.well
+    %ul
+      編輯說明:
+      %li ALT - J: 新增選項
+      %li ALT - K: 設定為正確答案
+      %li 請勾選正確答案
+      %li 可勾選多個正確答案
+  .form-actions
+    = f.button :submit, "儲存題目", :class => 'btn-primary'

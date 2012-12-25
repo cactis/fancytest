@@ -1,0 +1,17 @@
+%h1 Listing sheets
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @sheets.each do |sheet|
+    %tr
+      %td= link_to 'Show', sheet
+      %td= link_to 'Edit', edit_sheet_path(sheet)
+      %td= link_to 'Destroy', sheet, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Sheet', new_sheet_path

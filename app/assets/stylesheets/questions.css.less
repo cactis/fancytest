@@ -1,0 +1,43 @@
+@import "twitter/bootstrap/bootstrap";
+@import 'customize';
+
+html body {
+  .edit_question, .new_question{
+    #question_prompt{
+      font-size: 1.5em;
+      height: 5em;
+    }
+    #question_prompt{
+    }
+
+    textarea{
+      padding-bottom: 1em;
+    }
+
+    .option textarea{
+      width: 77%;
+    }
+
+  }
+
+  .option{
+    margin-bottom: 1em;
+    label.boolean{
+      display: inline-block;
+    }
+    input[type=text], textarea{
+      margin-bottom: 0;
+      padding: 4px 7px;
+      height: 20px;
+    }
+  }
+
+  .add_nested_fields, .remove_nested_fields{
+  }
+
+  .memo{
+    margin: 1em;
+    color: #333;
+    font-size: 0.8em;
+  }
+}

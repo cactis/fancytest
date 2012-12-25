@@ -1,0 +1,17 @@
+%h1 Listing relations
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @relations.each do |relation|
+    %tr
+      %td= link_to 'Show', relation
+      %td= link_to 'Edit', edit_relation_path(relation)
+      %td= link_to 'Destroy', relation, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Relation', new_relation_path

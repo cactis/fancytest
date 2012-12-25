@@ -1,0 +1,17 @@
+%h1 Listing treeings
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @treeings.each do |treeing|
+    %tr
+      %td= link_to 'Show', treeing
+      %td= link_to 'Edit', edit_treeing_path(treeing)
+      %td= link_to 'Destroy', treeing, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Treeing', new_treeing_path

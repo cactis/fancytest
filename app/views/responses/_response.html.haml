@@ -1,0 +1,5 @@
+.response{:id => dom_id(response)}
+  .prompt= markdown response.prompt
+  .answers= render response.answers
+  = owner_tool(response, :remote => true)
+%hr

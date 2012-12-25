@@ -1,0 +1,14 @@
+.main.span8
+  %h1 新增「#{@exam.prompt}」的題目
+  = render 'form'
+
+  %h1 #{@exam.prompt} 的考題清單, 共 #{@questions.total_count} 題
+  = render @questions
+  = paginate @questions
+.sidebar.span4
+  %h2 關於 #{@exam.prompt}
+  = link_to_skill(@exam)
+  .actions
+    = link_to_build_sheet(@exam)
+  .descriptioin
+    = @exam.description

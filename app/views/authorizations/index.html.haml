@@ -1,0 +1,31 @@
+%h1 Listing authorizations
+
+%table
+  %tr
+    %th User
+    %th Provider
+    %th Uid
+    %th Token
+    %th Secret
+    %th Fresh token
+    %th  config
+    %th
+    %th
+    %th
+
+  - @authorizations.each do |authorization|
+    %tr
+      %td= authorization.user_id
+      %td= authorization.provider
+      %td= authorization.uid
+      %td= authorization.token
+      %td= authorization.secret
+      %td= authorization.fresh_token
+      %td= authorization._config
+      %td= link_to 'Show', authorization
+      %td= link_to 'Edit', edit_authorization_path(authorization)
+      %td= link_to 'Destroy', authorization, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Authorization', new_authorization_path

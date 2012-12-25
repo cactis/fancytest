@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @authorization.user_id
+%p
+  %b Provider:
+  = @authorization.provider
+%p
+  %b Uid:
+  = @authorization.uid
+%p
+  %b Token:
+  = @authorization.token
+%p
+  %b Secret:
+  = @authorization.secret
+%p
+  %b Fresh token:
+  = @authorization.fresh_token
+%p
+  %b  config:
+  = @authorization._config
+
+= link_to 'Edit', edit_authorization_path(@authorization)
+\|
+= link_to 'Back', authorizations_path

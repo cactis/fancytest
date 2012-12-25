@@ -1,0 +1,27 @@
+= simple_form_for(@instance) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :prompt, :placeholder => "請輸入#{@klass.model_name.human}名稱"
+    -# = f.input :prompt, :collection => Skill.all.map{|s| [s.prompt]}, :prompt => '請選取或輸入技能名稱'
+    = f.input :description, :as => :text, :placeholder => "(關於本測驗的簡單說明，選填。)"
+    = f.input :logo, :as => :file, :hint => '(關於本測驗的圖示，選填。)'
+  .form-actions
+    = f.button :submit, "儲存測驗"
+
+
+
+//:coffeescript
+//  $('#skill_prompt').chosen()
+//  $('#skill_prompt')
+//    .chosen
+//      no_results_text: "未找到符合",
+//      allow_single_deselect: true,
+//      create_option: true,
+//      persistent_create_option: true
+//    .change (evt) ->
+//      data = {keyword: $(this).val()}
+//      $.fn.log data
+//      $.ajax
+//        url: '/searches'
+//        data: data
+//        type: 'Post'

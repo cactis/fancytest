@@ -1,0 +1,6 @@
+.main.span8
+  %h1 現有哪些#{@instances.model_name.human}測驗
+  = render @instances
+  = paginate @instances
+.sidebar.span4
+  %h1 關於#{@instances.model_name.human}測驗的統計

@@ -1,0 +1,9 @@
+.main.span8
+  %h1 建立新的#{@klass.model_name.human}測驗
+  = render 'form'
+.sidebar.span4
+  %h2 如何建立一份測驗？
+  %ol
+    %li 輸入所要建立的#{@klass.model_name.human}名稱
+    %li 輸入本測驗的簡單說明。可選填
+  #skills_list

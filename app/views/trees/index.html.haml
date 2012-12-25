@@ -1,0 +1,27 @@
+%h1 Listing trees
+
+%table
+  %tr
+    %th Name
+    %th Parent
+    %th Lft
+    %th Rgt
+    %th Depth
+    %th
+    %th
+    %th
+
+  - @trees.each do |tree|
+    %tr
+      %td= tree.name
+      %td= tree.parent_id
+      %td= tree.lft
+      %td= tree.rgt
+      %td= tree.depth
+      %td= link_to 'Show', tree
+      %td= link_to 'Edit', edit_tree_path(tree)
+      %td= link_to 'Destroy', tree, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Tree', new_tree_path

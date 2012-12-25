@@ -1,0 +1,4 @@
+.fields.form-inputs.option{:class => f.object.checked}
+  = f.check_box :checked, :title => '(正確答案請打勾)'
+  = f.text_area :prompt
+  = f.link_to_remove "<i class='icon-minus-sign'></i> 移除".html_safe, :class => 'btn'

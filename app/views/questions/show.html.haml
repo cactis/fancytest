@@ -1,0 +1,8 @@
+.main.span8
+  %h1 #{link_to @question.quiz.prompt, skill_questions_path(@question.quiz)}
+  = render @question
+.sidebar.span4
+  %h2 關於本題的統計
+
+  = link_to_build_questions(@question.quiz)
+  = link_to_build_sheet(@question.quiz)

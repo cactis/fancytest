@@ -1,0 +1,6 @@
+.question{:id => dom_id(question)}
+  .prompt= markdown question.prompt
+  .options= render question.options
+  = owner_tool(question, :remote => true)
+  .actions
+    = question._info
