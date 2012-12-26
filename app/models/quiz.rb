@@ -23,6 +23,8 @@ class Quiz < ActiveRecord::Base
 
   validates_presence_of :prompt
 
+  def title; prompt; end
+
   def location
     self[:location] ? self[:location] : "(無)"
   end

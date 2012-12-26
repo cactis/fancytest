@@ -6,7 +6,7 @@
 
 .sidebar.span4
   %h2 出題者： #{link_to_polymorphic @question.user}
-  %h2 關於 #{@skill.prompt}
+  %h2 關於 #{link_to_polymorphic @skill}
   .location= @skill._info
   = link_to_skill(@skill)
   .actions

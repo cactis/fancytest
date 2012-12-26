@@ -6,3 +6,5 @@
   = links_to_user_tag @instance.authors.uniq
   %h2 測驗者：
   = links_to_user_tag @instance.testers.uniq
+  %h2 下載考題：
+  = link_to "下載考題", skill_questions_path(@instance, :page => 1, :format => 'json'), :class => 'btn'

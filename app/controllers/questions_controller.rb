@@ -5,10 +5,10 @@ class QuestionsController < ApplicationController
     @exam = get_exam
     @questions = @exam.questions.page(params[:page]).order('updated_at desc')
     @question = @exam.questions.new
-
+    debug @questions.count, '@questions.count'
     respond_to do |format|
       format.html {}
-      format.json { render json: @questions }
+      format.json { render json: [@exam, @questions.as_json(:include => [:options])] }
     end
   end
 
