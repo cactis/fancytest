@@ -17,7 +17,9 @@ class Quiz < ActiveRecord::Base
   has_many :questions, :foreign_key => 'parent_id', :dependent => :destroy
   has_many :authors, :through => :questions, :source => :user
 
+
   has_many :responses, :through => :questions
+  has_many :testers, :through => :responses, :source => :user
 
   validates_presence_of :prompt
 

@@ -47,11 +47,16 @@ html body{
     line-height: inherit;
     font-family: inherit;
   }
-  h1, h2, h3, h4{
-    font-size: 1.4em;
+  h1{
     margin-bottom: 1em;
+    font-size: 1.5em;
   }
+
   h2, h3, h4{
+    font-size: 1.4em;
+    margin-bottom: 0;
+  }
+  h3, h4{
     font-size: 1.2em;
   }
   ol, ul{
@@ -335,4 +340,25 @@ footer{
 .option.true, .true{
   background-color: @successBackground;
   .box-shadow(0 0 3px #333);
+}
+
+.tag{
+  .border-radius(3px);
+  background-color: #ddd;
+  font-size: 0.8em;
+  border: 1px solid #ccc;
+  padding: 2px 5px;
+  margin-right: 3px;
+  &:hover{
+    background-color: #aaa;
+    border-color: #aaa;
+    a{
+      color: #333;
+      text-decoration: none;
+      border-bottom: none;
+    }
+  }
+  a{
+    color: #333;
+  }
 }
