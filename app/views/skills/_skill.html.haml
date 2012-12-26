@@ -4,7 +4,7 @@
     .logo= quiz_logo(skill)
   .span4
     .prompt= link_to skill.prompt, skill
-    .description= skill.description
+    .description= skill._descriptioin
   .actions
     = skill._info
     = link_to_build_sheet(skill, :class => 'btn-primary')

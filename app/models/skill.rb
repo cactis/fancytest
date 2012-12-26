@@ -1,6 +1,10 @@
 # -*- encoding : utf-8 -*-
 class Skill < Exam
 
+  def _descriptioin
+    Sanitize.clean(description, Sanitize::Config::BASIC).html_safe
+  end
+
   # skill 的適性測驗
   def next_question
     # 用戶程度: 用戶最後前答題的難易度 或者

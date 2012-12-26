@@ -17,6 +17,7 @@ pickle-email-*.html
 /config/database.yml
 /config/application.rb
 /config/application.yml
+/config/query_reviewer.yml
 /config/initializers/faye_token.rb
 /config/environments/development.rb
 /config/environments/production.rb

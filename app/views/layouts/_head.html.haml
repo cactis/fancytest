@@ -1,5 +1,4 @@
 %meta{:charset => "utf-8"}/
--# %title= content_for?(:title) ? yield(:title) : "Fancytest"
 %title= "#{yield(:title)} - #{Settings.app_name}"
 = csrf_meta_tags
 / Le HTML5 shim, for IE6-8 support of HTML elements
@@ -8,7 +7,6 @@
 / Le styles
 
 %link{:href => 'http://fonts.googleapis.com/css?family=Droid+Sans|Varela|Maven+Pro|Prociono|Snippet|Patrick+Hand|Cabin|Julee|Sorts+Mill+Goudy|Michroma|Andika|Cabin+Sketch:700|Delius+Swash+Caps|Coustard|Montez|Short+Stack|Philosopher|Istok+Web|Ubuntu|Josefin+Sans:400,700|Schoolbell|Gloria+Hallelujah|Antic|Monoton|EB+Garamond|Adamina|Architects+Daughter|Comfortaa|Delius|Didact+Gothic|Hammersmith+One|Numans|Nunito|Open+Sans|Play|Quattrocento+Sans|Rosario|Varela+Round', :rel => 'stylesheet', :type => 'text/css'}
-
 
 = stylesheet_link_tag "application"
 

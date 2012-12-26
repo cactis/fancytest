@@ -69,15 +69,19 @@ gem 'store_configurable', '~> 3.2.0'
 # gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 gem "nested_form", '0.2.3'
 
+# gem "query_reviewer", :git => "git://github.com/nesquena/query_reviewer.git"
+
 group :development do
 
-  gem "query_reviewer", :git => "git://github.com/nesquena/query_reviewer.git"
+
   gem 'ruby-growl'
   # gem 'xmpp4r'
   gem 'bullet'
 
   gem "better_errors"
   gem "binding_of_caller"
+
+  gem 'meta_request', '0.1.3'
 
   gem 'haml-rails'
   gem 'rails-footnotes', '>= 3.7.5.rc4'

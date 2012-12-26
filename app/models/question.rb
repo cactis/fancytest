@@ -3,6 +3,7 @@ require "redcarpet"
 class Question < Quiz
 
   belongs_to :quiz, :foreign_key => 'parent_id', :counter_cache => true
+  belongs_to :user
 
   has_many :options, :dependent => :destroy, :foreign_key => 'quiz_id'
 

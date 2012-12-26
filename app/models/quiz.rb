@@ -11,22 +11,15 @@ class Quiz < ActiveRecord::Base
     :hash_secret => Settings.paperclip_hash_secret,
     :default_url => "/assets/logos/normal/missing.png"
 
-
   has_many :papers, :as => :paperable, :dependent => :destroy
   has_many :sheets, :as => :paperable
 
   has_many :questions, :foreign_key => 'parent_id', :dependent => :destroy
+  has_many :authors, :through => :questions, :source => :user
+
   has_many :responses, :through => :questions
 
   validates_presence_of :prompt
-
-
-#  def prompt
-#    renderer = Redcarpet::Render::HTML.new(:autolink => true, :space_after_headers => true)#, :fenced_code_blocks => true)
-#    # renderer = Redcarpet::Render::HTML.new(:no_links => true, :hard_wrap => true)
-#    markdown = Redcarpet::Markdown.new(renderer)
-#    markdown.render(self[:prompt])
-#  end
 
   def location
     self[:location] ? self[:location] : "(無)"

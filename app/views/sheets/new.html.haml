@@ -3,14 +3,16 @@
     .bar{:style => 'height: 30px;width: 100%'}
       .info
   = render 'form'
+
 .sidebar.span4
+  %h2 出題者： #{link_to_polymorphic @question.user}
   %h2 關於 #{@skill.prompt}
   .location= @skill._info
   = link_to_skill(@skill)
   .actions
     = link_to_build_questions(@skill)
   .descriptioin
-    = @skill.description
+    = raw @skill._description
 
   %h2 您在本測驗的能力值：#{current_user._ability_value(@skill)}
   - if current_user._ability_value(@skill)

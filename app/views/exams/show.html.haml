@@ -2,3 +2,5 @@
   = render @instance
 .sidebar.span4
   %h1 關於#{@instance.prompt} 測驗
+  %h2 作者群：
+  = links_to_user_tag @instance.authors.uniq

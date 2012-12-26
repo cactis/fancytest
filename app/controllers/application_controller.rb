@@ -14,6 +14,15 @@ class ApplicationController < ActionController::Base
   def development? ; Rails.env.development? ? true : false; end
   helper_method :development?
 
+
+  def supervisor
+    User.order('id asc').first
+  end
+  def supervisor?
+    User.current == supervisor
+  end
+  helper_method :supervisor?
+
   def debug(msg, title = 'debug info')
     return unless development?
     logger.ap '-'*30 + '-> ' + title

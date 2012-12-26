@@ -29,6 +29,7 @@ module ApplicationHelper
 
   def title(text)
     content_for :title, text
+    "<h1>#{text}</h1>".html_safe
   end
 
   def flash_class(level)
