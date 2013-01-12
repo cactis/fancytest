@@ -57,5 +57,6 @@
         #wrapper4
           #bottom
             %footer
-              %p &copy; Fancytest 2012
+              %p &copy; Fancytest 2012 #{Rails::VERSION::STRING}
+
     = render :partial => '/layouts/google_analytics' if Rails.env.production?        
